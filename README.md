@@ -1,5 +1,24 @@
 # Cheat for owo
 
+Version: 1.0.5 For replit
+
+Ấn vào đây để fork [here](https://replit.com/github/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5)
+
+Token được để ở phần secrets của replit:
+Tạo `token` rồi đặt value là token của bạn. Nếu không biết cách lấy thì hãy xem Bên dưới
+
+## Cách lấy token 
+
+Dành cho PC: Vào https://discord.com tạo tài khoản. Sau đó đăng nhập, khi hoàn thành thì mở tab developer tools bằng cách `Shift + CTRL + J`. Tiếp theo vào phần console dán cái đoạn code dưới để lấy token: 
+```
+(webpackChunkdiscord_app.push([[''],{},e=>{m=[];for(let c in e.c)m.push(e.c[c])}]),m).find(m=>m?.exports?.default?.getToken!==void
+0).exports.default.getToken()
+```
+Sau khi token hiện ra thì copy bỏ `""` (bỏ dấu ngoặc ở đầu và cuối) 
+Lấy token đó dán vào sercet rồi save thế là xong!
+
+Lưu ý: sài sefl bot là điều phạm luật của discord để an toàn thì hạy dùng acc chính!
+Server support ở bên dưới. 
 * ### [Download Lastest Release](https://github.com/ahihiyou20/discord-selfbot-owo-bot/tags)
 [![GitHub issues](https://img.shields.io/github/issues/ahihiyou20/discord-selfbot-owo-bot?label=Open%20%C4%B0ssues)](https://github.com/ahihiyou20/discord-selfbot-owo-bot/issues)
 [![GitHub forks](https://img.shields.io/github/forks/ahihiyou20/discord-selfbot-owo-bot)](https://github.com/ahihiyou20/discord-selfbot-owo-bot/network)
