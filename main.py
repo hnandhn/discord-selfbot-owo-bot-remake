@@ -1,5 +1,5 @@
-from api import key
-pain = key()
+#from api import key
+pain = "Non-Premium"
 from colorama import init
 import os
 init()
