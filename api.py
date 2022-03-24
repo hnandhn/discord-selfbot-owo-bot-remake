@@ -7,7 +7,7 @@ def key():
   username = input("Enter Your Username: ")
   token = input("Enter Authorize Token: ")
   at = input("Secret Token: ")
-  r = requests.get('https://Key-API.vien12345678.repl.co/user/?token={}'.format(at))
+  r = requests.get('https://crackkeypremiumowo.codegabap.tk/user/?token={}'.format(at))
   if r.status_code == 404:
    print("Invalid Secret Token")
    time.sleep(3)
@@ -27,7 +27,7 @@ def key():
  else:
   username = input("Enter Username: ")
   token = input("Enter Token: ")
-  r = requests.get('https://key-api.vien12345678.repl.co/premium/?token={}&user={}'.format(token,username))
+  r = requests.get('https://crackkeypremiumowo.codegabap.tk/premium/?token={}&user={}'.format(token,username))
   if r.status_code == 200:
    print("Successfuly Logged In !")
    return "Premium"

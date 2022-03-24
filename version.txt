@@ -4,3 +4,8 @@ Current version: 1.0.5
 -Added Automatically Claim Daily For Premium User (Pain)
 -Added Automatically Change Channel After A While For Premium (To Gain More XP And Bypass Channel XP Limit Yk)
 -Added Log File.
+
+
+hocsinhgioitoan change
+
+-Thêm một số tuỳ chọn cho việc sử dụng như farm exp, owo, dank, fish

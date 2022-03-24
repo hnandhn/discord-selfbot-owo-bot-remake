@@ -1,8 +1,10 @@
-from api import key
-pain = key()
+#from api import key
+pain = "Non-Premium"
 from colorama import init
 import os
-init()
+from sys import exit
+
+
 from sys import *
 import logging
 import sys
@@ -50,6 +52,7 @@ except:
  install()
 finally:
  from discord_webhook import DiscordWebhook
+init()
 print("""\
 ░█████╗░░██╗░░░░░░░██╗░█████╗░  ░██████╗███████╗██╗░░░░░███████╗  ██████╗░░█████╗░████████╗
 ██╔══██╗░██║░░██╗░░██║██╔══██╗  ██╔════╝██╔════╝██║░░░░░██╔════╝  ██╔══██╗██╔══██╗╚══██╔══╝
@@ -59,13 +62,24 @@ print("""\
 ░╚════╝░░░░╚═╝░░░╚═╝░░░╚════╝░  ╚═════╝░╚══════╝╚══════╝╚═╝░░░░░  ╚═════╝░░╚════╝░░░░╚═╝░░░
 
 **Version: 1.0.5**""")
+
 wbm=[13,16]
 time.sleep(0.5)
 class client:
   commands=[
     "owo hunt",
-    "owo hunt",
-    "owo battle"
+    "owo battle",
+    ]
+  darkcommands=[
+    "pls beg",
+    "pls hunt",
+    "pls fish"
+    ]
+  fishcommands=[
+    "%fish",
+    ]
+  gamecommands=[
+    "t", "h"
     ]
   totalcmd = 0
   totaltext = 0
@@ -99,6 +113,11 @@ class client:
         daily = data["daily"]
         change = data["change"]
         stop = data["stop"]
+        owo = data["owo"]
+        fish = data["fish"]
+        dank = data["dank"]
+
+        channelxp = channel
   if data["token"] and data["channel"] == 'nothing':
    print(f"{color.fail} !!! [ERROR] !!! {color.reset} Please Enter Information To Continue")
    time.sleep(1)
@@ -195,6 +214,7 @@ def security(resp):
      sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> I Found A Captcha In Channel: <#{}>'.format(client.webhookping,client.channel))
      response = sentwebhook.execute()
      bot.gateway.close()
+      
     else:
      sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> <@{}> I Found A Captcha In Channel: <#{}>'.format(user['id'],client.allowedid,client.channel))
      response = sentwebhook.execute()
@@ -209,7 +229,7 @@ def issuechecker(resp):
  if resp.event.message:
    m = resp.parsed.auto()
    if m['channel_id'] == client.channel and client.stopped != True:
-    if m['author']['id'] == '408785106942164992' or m['author']['username'] == 'OwO' or m['author']['discriminator'] == '8456' or m['author']['public_flags'] == '65536':
+    if m['author']['id'] == '677789907388989469' or m['author']['username'] == 'OwO' or m['author']['discriminator'] == '8456' or m['author']['public_flags'] == '65536':
      if 'captcha' in m['content'].lower():
        print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED')
        return "captcha"
@@ -243,8 +263,9 @@ def issuechecker(resp):
          client.channel2.append(b)
          client.channel2.append(c[b]['name'])
 def runner():
-  if client.stopped != True:
-        global wbm
+  if client.owo == "YES":
+    if client.stopped != True:
+        
         command=random.choice(client.commands)
         command2=random.choice(client.commands)
         bot.typingAction(str(client.channel))
@@ -254,20 +275,80 @@ def runner():
         if not command2==command and client.stopped != True:
           bot.typingAction(str(client.channel))
           time.sleep(13)
-          bot.sendMessage(str(client.channel), command2)
+          bot.sendMessage(str(client.channel), command2)    
           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command2}")
           client.totalcmd += 1
         time.sleep(random.randint(wbm[0],wbm[1]))
+  if client.owo == "NO":
+    pass
+  if client.dank == "YES":
+    if client.stopped != True:
+        
+        command=random.choice(client.darkcommands)
+        command2=random.choice(client.darkcommands)
+        bot.typingAction(str(client.channel))
+        bot.sendMessage(str(client.channel), command)
+        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command}")
+        client.totalcmd += 1
+        if not command2==command and client.stopped != True:
+          bot.typingAction(str(client.channel))
+          time.sleep(10)
+          bot.sendMessage(str(client.channel), command2)    
+          print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command2}")
+          client.totalcmd += 1
+        time.sleep(random.randint(50,60))
+  if client.dank == "NO":
+    pass
+  if client.fish == "YES":
+    if client.stopped != True:
+        
+        command=random.choice(client.fishcommands)
+        command2=random.choice(client.fishcommands)
+        bot.typingAction(str(client.channel))
+        bot.sendMessage(str(client.channel), command)
+        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command}")
+        client.totalcmd += 1
+        if not command2==command and client.stopped != True:
+          bot.typingAction(str(client.channel))
+          time.sleep(1)
+          bot.sendMessage(str(client.channel), command2)    
+          print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command2}")
+          client.totalcmd += 1
+        time.sleep(random.randint(4,5))
+  if client.fish == "NO":
+    pass
 def owoexp():
  if client.stopped != True:
   if client.em == "YES":
-         response = requests.get("https://quote-garden.herokuapp.com/api/v3/quotes/random")
+        
+        try:
+         response = requests.get("https://quote-garden.herokuapp.com/api/v3/quotes/random?count=5")
          if response.status_code == 200:
            json_data = response.json()
            data = json_data['data']
-           bot.sendMessage(str(client.channel), data[0]['quoteText'])
-           client.totaltext += 1
-           time.sleep(random.randint(1,6))
+           bot.sendMessage(str(client.channelxp), "1 "+ data[0]['quoteText'])
+           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 1")
+           time.sleep(3)
+           bot.sendMessage(str(client.channelxp), "2 "+ data[1]['quoteText'])
+           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 2")
+           time.sleep(3)
+           bot.sendMessage(str(client.channelxp), "3 "+ data[2]['quoteText'])
+           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 3")
+           time.sleep(3)
+           bot.sendMessage(str(client.channelxp), "4 "+ data[3]['quoteText'])
+           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 4")
+           time.sleep(3)
+           bot.sendMessage(str(client.channelxp), "5 "+ data[4]['quoteText'])
+           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 5")
+           time.sleep(3)
+           client.totaltext = client.totaltext + 1
+           time.sleep(random.randint(1,2))
+         else:
+           pass
+        except:
+           pass
+ if client.em == "NO":
+        pass
 def owopray():
  if client.stopped != True:
   if client.pm == "YES":
@@ -475,6 +556,7 @@ def loopie(resp):
       if client.sm == "YES":
        if time.time() - main > random.randint(1000, 2000):
         main=time.time()
+        print("Slepp modeeeee")
         time.sleep(random.randint(500, 700))
       if time.time() - daily_time > int(client.wait_time_daily):
         daily()

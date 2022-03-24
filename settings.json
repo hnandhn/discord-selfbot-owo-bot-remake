@@ -25,6 +25,10 @@
   "_comment_daily": "Premium only: Join server discord de biet thong tin chi tiet",
   "change": "YES",
   "_comment_change": "Premium only: Join server discord de biet thong tin chi tiet",
-  "stop": "999999"
+  "stop": "999999",
   "_comment_stop": "Time tu dong tat sau khi chay",
+    "channelxp": "Id kenh de farm xp",
+  "owo": "Mode auto owo YES/NO",
+  "fish": "Mode auto fish YES/NO",
+  "dank": "Mode auto YES/NO dank"
 }
