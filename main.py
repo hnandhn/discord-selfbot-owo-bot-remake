@@ -201,7 +201,7 @@ bot = discum.Client(token=client.token, log=False)
 
 @bot.gateway.command
 def on_ready(resp):
-    if resp.event.ready_supplemental: #ready_supplemental is sent after ready
+    if resp.event.ready_supplemental: 
         user = bot.gateway.session.user
         print("Logged in as {}#{}".format(user['username'], user['discriminator']))
 @bot.gateway.command
