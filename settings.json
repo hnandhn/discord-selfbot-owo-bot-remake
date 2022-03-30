@@ -1,5 +1,5 @@
 {
-  "token": "Khong Dien Vao Day Hay doc README.md De Biet Cach Su Dung Token",
+  "token": "token",
   "channel": "id_channel",
   "gm": "NO",
   "sm": "NO",
@@ -14,7 +14,7 @@
   "change": "YES",
   "stop": "999999",
   "channelxp": "Id kenh de farm xp",
-  "owo": "Mode auto owo YES/NO",
-  "fish": "Mode auto fish YES/NO",
-  "dank": "Mode auto YES/NO dank"
+  "owo": "YES/NO",
+  "fish": "YES/NO",
+  "dank": "YES/NO"
 }

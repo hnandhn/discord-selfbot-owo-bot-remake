@@ -5,7 +5,7 @@
 Version: 1.0.5 remake
 
 không hỗ trợ cho replit
-
+Cảm ơn Back#5278 đã giúp test project này
 ## Cách lấy token 
 
 Dành cho PC: Vào https://discord.com tạo tài khoản. Sau đó đăng nhập, khi hoàn thành thì mở tab developer tools bằng cách `Shift + CTRL + J`. Tiếp theo vào phần console dán cái đoạn code dưới để lấy token: 
@@ -17,10 +17,10 @@ Token sẽ được copy tới bộ nhớ tạm của bạn
 
 Lưu ý: sài sefl bot là điều phạm luật của discord để an toàn thì hạy dùng acc chính!
 Server support ở bên dưới. 
-* ### [Download Lastest Release](https://github.com/ahihiyou20/discord-selfbot-owo-bot/tags)
-[![GitHub issues](https://img.shields.io/github/issues/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5?label=Open%20%C4%B0ssues)](https://github.com/ahihiyou20/discord-selfbot-owo-bot/issues)
-[![GitHub forks](https://img.shields.io/github/forks/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5)](https://github.com/ahihiyou20/discord-selfbot-owo-bot/network)
-[![GitHub stars](https://img.shields.io/github/stars/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5)](https://github.com/ahihiyou20/discord-selfbot-owo-bot/stargazers)
+* ### [Download Lastest Release](https://github.com/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5/tags)
+[![GitHub issues](https://img.shields.io/github/issues/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5?label=Open%20%C4%B0ssues)](https://github.com/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5/issues)
+[![GitHub forks](https://img.shields.io/github/forks/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5)](https://github.com/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5/network)
+[![GitHub stars](https://img.shields.io/github/stars/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5)](https://github.com/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5/stargazers)
 
 
 How to setup?
