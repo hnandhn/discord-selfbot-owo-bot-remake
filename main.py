@@ -81,6 +81,8 @@ class client:
     "t", "h"
     ]
   totalcmd = 0
+  totallost = 0
+  totalwon = 0
   totaltext = 0
   stopped = False
   recentversion = "1.01"
@@ -108,14 +110,15 @@ class client:
         allowedid = data["allowedid"]
         webhook = data["webhook"]
         webhookping = data["webhookping"]
-        alt = data["alt"]
         daily = data["daily"]
         change = data["change"]
         stop = data["stop"]
         owo = data["owo"]
         fish = data["fish"]
         dank = data["dank"]
-
+        bet = data["bet"]
+        betgoc =data["bet"]
+        cobac = data["cobac"]
         channelxp = channel
   if data["token"] and data["channel"] == 'nothing':
    print(f"{color.fail} !!! [ERROR] !!! {color.reset} Nhập thông tin để tiếp tục")
@@ -522,6 +525,32 @@ def othercommands(resp):
        bot.sendMessage(str(m['channel_id']), "Turned Off Exp Mode")
        print(f"{client.color.okcyan}[INFO] Turned Off Sleep Mode{client.color.reset}")
 @bot.gateway.command
+def check(resp):
+  if resp.event.message_updated:
+   m = resp.parsed.auto()
+   if m['channel_id'] == client.channel:
+    if m['author']['id'] == '408785106942164992' or m['author']['username'] == 'OwO' or m['author']['discriminator'] == '8456' or m['author']['public_flags'] == '65536':
+      if 'and you won' in m['content']:
+       bet1 = client.bet
+       print("{} [INFO] Won: {} Cowoncy{}".format(client.color.okgreen,client.bet + client.bet,client.color.reset))
+       
+       client.totalwon = client.totalwon + 1
+      if 'and you lost it all... :c' in m['content']:
+       print(" {} [INFO] Lost: {} Cowoncy {}".format(client.color.fail,client.bet,client.color.reset))
+       client.bet = client.bet + client.bet
+       client.totallost = client.totallost + 1
+def cf():
+  choice = random.choice(client.gamecommands)
+  bot.sendMessage(str(client.channel), "owo cf {} {} ".format(client.bet,choice))
+  print("{} {} [GỬI] owo cf {} {} {}".format(at(),client.color.warning,client.bet,choice,client.color.reset))
+  client.totalcmd = client.totalcmd + 1
+  time.sleep(random.randint(wbm[0], wbm[1]))
+  bot.sendMessage(str(client.channel), "owo cash")
+  time.sleep(5)
+  if client.bet == 128000:
+
+    client.bet = betgoc
+@bot.gateway.command
 def loopie(resp):
  if resp.event.ready:
   x=True
@@ -530,6 +559,7 @@ def loopie(resp):
   daily_time = pray
   change = pray
   gemstime = pray
+  cobac = 0
   main=time.time()
   stop = main
   while x:
@@ -537,6 +567,12 @@ def loopie(resp):
       if time.time() - pray > random.randint(300, 600):
         owopray()
         pray=time.time()
+      if client.cobac == "YES": 
+        if time.time() - cobac > random.randint(15, 18):
+          cf()
+          cobac=time.time()
+        elif client.cobac == "NO" :
+          pass
       if time.time() - owo > random.randint(5, 15):
         owoexp()
         owo=time.time()
