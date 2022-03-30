@@ -9,8 +9,7 @@ from sys import *
 import logging
 import sys
 import time
-from keep_alive import keep_alive 
-keep_alive()
+
 def error(exctype, value, tb):
     f = open('logs.txt','w')
     f.write('Lastest Error Information: \n')
