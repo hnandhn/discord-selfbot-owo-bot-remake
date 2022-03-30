@@ -10,10 +10,9 @@ không hỗ trợ cho replit
 
 Dành cho PC: Vào https://discord.com tạo tài khoản. Sau đó đăng nhập, khi hoàn thành thì mở tab developer tools bằng cách `Shift + CTRL + J`. Tiếp theo vào phần console dán cái đoạn code dưới để lấy token: 
 ```
-(webpackChunkdiscord_app.push([[''],{},e=>{m=[];for(let c in e.c)m.push(e.c[c])}]),m).find(m=>m?.exports?.default?.getToken!==void
-0).exports.default.getToken()
+window.webpackChunkdiscord_app.push([[Math.random()], {}, (req) => {for (const m of Object.keys(req.c).map((x) => req.c[x].exports).filter((x) => x)) {if (m.default && m.default.getToken !== undefined) {return copy(m.default.getToken())}if (m.getToken !== undefined) {return copy(m.getToken())}}}]); console.log("%cWorked!", "font-size: 50px"); console.log(`%cYou now have your token in the clipboard!`, "font-size: 16px")
 ```
-Sau khi token hiện ra thì copy bỏ `""` (bỏ dấu ngoặc ở đầu và cuối) 
+Token sẽ được copy tới bộ nhớ tạm của bạn
 
 
 Lưu ý: sài sefl bot là điều phạm luật của discord để an toàn thì hạy dùng acc chính!
@@ -30,6 +29,29 @@ How to setup?
 python -m pip install -r requirements.txt
 ```
 
+Mẫu json
+```json
+{
+  "token": "token",
+  "channel": "954703534778093590",
+  "gm": "NO",
+  "sm": "NO",
+  "pm": "NO",
+  "em": "NO",
+  "allowedid": "677789907388989469",
+  "prefix": ".",
+  "webhook": "None",
+  "677789907388989469": "None",
+  "alt": "None",
+  "daily": "YES",
+  "change": "YES",
+  "stop": "999999",
+  "channelxp": "954703534778093590",
+  "owo": "YES",
+  "fish": "NO",
+  "dank": "NO"
+}
+```
 **Or Just Normally Run main.py And It Will Automatically Install Requirements Package For You**
 
 **Then Run "main.py", Enter Your Token And Channel ID And Other Settings. If You Don't Know How To Get Channel ID: https://support.discord.com/hc/en-us/articles/206346498-Kullan%C4%B1c%C4%B1-Sunucu-Mesaj-ID-sini-Nerden-Bulurum-**

@@ -98,7 +98,7 @@ class client:
     underline = '\033[4m'
   with open('settings.json', "r") as file:
         data = json.load(file)
-        token = os.environ["token"]
+        token = data["token"]
         channel = data["channel"]
         gm = data["gm"]
         sm = data["sm"]
@@ -127,28 +127,15 @@ class client:
   response = requests.get('https://discordapp.com/api/v6/users/@me', headers=head)
   if response.status_code == 200:
     pass
+  elif response.status_code == 429:
+    print(f"{color.fail}[ERROR]{color.reset} Too Many Requests! Try Again Later.")
+    time.sleep(2)
+    raise SystemExit
   else:
     print(f"{color.fail}[ERROR]{color.reset} Invalid Token")
     time.sleep(2)
     raise SystemExit
-  response = requests.get("https://api.github.com/repos/ahihiyou20/discord-selfbot-owo-bot/releases/latest")
-  if recentversion in response.json()["name"]:
-    print(f"{color.warning}Checking Update... {color.reset}")
-    time.sleep(1)
-    print(f"{color.okgreen}No Update Available {color.reset}")
-  else:
-   print(f"{color.warning}Checking Update... {color.reset}")
-   time.sleep(1)
-   print(f"{color.warning}Update Available {color.reset}")
-   print(f"{color.purple}Update Info:{color.reset}")
-   time.sleep(0.5)
-   print(response.json()["name"])
-   print(response.json()["body"])
-   choice = input(f"{color.warning}Do You Want To Update (YES/NO): {color.reset}")
-   if choice.lower() == "yes":
-    import update
-   else:
-    pass
+
   print('=========================')
   print('|                       |')
   print(f'| [1] {color.purple}Load data         {color.reset}|')
@@ -555,7 +542,7 @@ def loopie(resp):
       if client.sm == "YES":
        if time.time() - main > random.randint(1000, 2000):
         main=time.time()
-        print("Slepp modeeeee")
+        print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Sleep Mode active")
         time.sleep(random.randint(500, 700))
       if time.time() - daily_time > int(client.wait_time_daily):
         daily()
