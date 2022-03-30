@@ -2,12 +2,9 @@
 
 # Cheat for owo
 
-Version: 1.0.5 For replit
+Version: 1.0.5 remake
 
-Ấn vào đây để fork [here](https://replit.com/github/hocsinhgioitoan/discord-selfbot-owo-bot-for-replit-1.0.5)
-
-Token được để ở phần secrets của replit:
-Tạo `token` rồi đặt value là token của bạn. Nếu không biết cách lấy thì hãy xem Bên dưới
+không hỗ trợ cho replit
 
 ## Cách lấy token 
 
@@ -17,7 +14,7 @@ Dành cho PC: Vào https://discord.com tạo tài khoản. Sau đó đăng nhậ
 0).exports.default.getToken()
 ```
 Sau khi token hiện ra thì copy bỏ `""` (bỏ dấu ngoặc ở đầu và cuối) 
-Lấy token đó dán vào sercet rồi save thế là xong!
+
 
 Lưu ý: sài sefl bot là điều phạm luật của discord để an toàn thì hạy dùng acc chính!
 Server support ở bên dưới. 
