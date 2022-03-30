@@ -52,7 +52,7 @@ Mẫu json
   "dank": "NO",
   "cobac": "NO",
   "bet": 10,
-  "comment_bet": "Khong ne de bet qua 1000 ne o muc 10 or 100"
+  "comment_bet": "Khong ne de bet qua 1000 nen o muc 10 or 100"
 }
 ```
 **Or Just Normally Run main.py And It Will Automatically Install Requirements Package For You**
