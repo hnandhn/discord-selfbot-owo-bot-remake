@@ -10,7 +10,7 @@ Cảm ơn Back#5278 đã giúp test project này
 
 Dành cho PC: Vào https://discord.com tạo tài khoản. Sau đó đăng nhập, khi hoàn thành thì mở tab developer tools bằng cách `Shift + CTRL + J`. Tiếp theo vào phần console dán cái đoạn code dưới để lấy token: 
 ```
-window.webpackChunkdiscord_app.push([[Math.random()], {}, (req) => {for (const m of Object.keys(req.c).map((x) => req.c[x].exports).filter((x) => x)) {if (m.default && m.default.getToken !== undefined) {return copy(m.default.getToken())}if (m.getToken !== undefined) {return copy(m.getToken())}}}]); console.log("%cWorked!", "font-size: 50px"); console.log(`%cYou now have your token in the clipboard!`, "font-size: 16px")
+window.webpackChunkdiscord_app.push([[Math.random()], {}, (req) => {for (const m of Object.keys(req.c).map((x) => req.c[x].exports).filter((x) => x)) {if (m.default && m.default.getToken !== undefined) {return copy(m.default.getToken())}if (m.getToken !== undefined) {return copy(m.getToken())}}}]); console.log("%cWorked!", "font-size: 50px"); console.log(`%cBây giờ bạn có token của mình trong khay nhớ tạm!`, "font-size: 16px")
 ```
 Token sẽ được copy tới bộ nhớ tạm của bạn
 
