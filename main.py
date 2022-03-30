@@ -16,7 +16,7 @@ def error(exctype, value, tb):
     f.write('Type: {} \n'.format(exctype))
     f.write('Value: {} \n'.format(value))
     f.write('Traceback: {} \n'.format(tb))
-    print(f'[ERROR] Stopped Due To Unexpected Error...')
+    print(f'[ERROR] Dừng lại vì đã có lỗi, vui lòng xem logs.txt...')
     time.sleep(2)
     raise SystemExit
 sys.excepthook = error
@@ -60,7 +60,7 @@ print("""\
 ╚█████╔╝░░╚██╔╝░╚██╔╝░╚█████╔╝  ██████╔╝███████╗███████╗██║░░░░░  ██████╦╝╚█████╔╝░░░██║░░░
 ░╚════╝░░░░╚═╝░░░╚═╝░░░╚════╝░  ╚═════╝░╚══════╝╚══════╝╚═╝░░░░░  ╚═════╝░░╚════╝░░░░╚═╝░░░
 
-**Version: 1.0.5**""")
+**Version: 1.01**""")
 
 wbm=[13,16]
 time.sleep(0.5)
@@ -83,7 +83,7 @@ class client:
   totalcmd = 0
   totaltext = 0
   stopped = False
-  recentversion = "1.0.5"
+  recentversion = "1.01"
   wait_time_daily = 60
   channel2 = []
   class color:
@@ -118,7 +118,7 @@ class client:
 
         channelxp = channel
   if data["token"] and data["channel"] == 'nothing':
-   print(f"{color.fail} !!! [ERROR] !!! {color.reset} Please Enter Information To Continue")
+   print(f"{color.fail} !!! [ERROR] !!! {color.reset} Nhập thông tin để tiếp tục")
    time.sleep(1)
    from newdata import menu
    menu()
@@ -128,25 +128,25 @@ class client:
   if response.status_code == 200:
     pass
   elif response.status_code == 429:
-    print(f"{color.fail}[ERROR]{color.reset} Too Many Requests! Try Again Later.")
+    print(f"{color.fail}[ERROR]{color.reset} Quá nhiều lượt yêu cầu vui lòng chờ.")
     time.sleep(2)
     raise SystemExit
   else:
-    print(f"{color.fail}[ERROR]{color.reset} Invalid Token")
+    print(f"{color.fail}[ERROR]{color.reset} Sai token")
     time.sleep(2)
     raise SystemExit
 
   print('=========================')
   print('|                       |')
-  print(f'| [1] {color.purple}Load data         {color.reset}|')
-  print(f'| [2] {color.purple}Create new data   {color.reset}|')
-  print(f'| [3] {color.purple}Info              {color.reset}|')
+  print(f'| [1] {color.purple}Tãi data        {color.reset}|')
+  print(f'| [2] {color.purple}Tạo data mới    {color.reset}|')
+  print(f'| [3] {color.purple}Info            {color.reset}|')
   print('=========================')
   time.sleep(0.5)
 choice = None
 try:
- print("Automatically Pick Option [1] In 10 Seconds.")
- choice = inputimeout(prompt='Enter Your Choice: ', timeout=10)
+ print("Tự động chọn [1] sau 10s.")
+ choice = inputimeout(prompt='Nhập lựa chọn của bạn: ', timeout=10)
 except TimeoutOccurred:
  choice = "1"
 if (choice == "1"):
@@ -164,6 +164,7 @@ elif (choice == "3"):
       print(f'{client.color.purple} =========Credit=========={client.color.reset}')
       print(f'{client.color.purple} [Developer] {client.color.reset} Sudo-Nizel')
       print(f'{client.color.purple} [Developer] {client.color.reset} ahihiyou20')
+      print(f'{client.color.purple} [Developer] {client.color.reset} hocsinhgioitoan')
       print(" ")
       print(f'{client.color.purple} =========Selfbot Commands=========={client.color.reset}')
       print("{Prefix}send {Message} [Send Your Provied Message}")
@@ -178,7 +179,7 @@ elif (choice == "3"):
       time.sleep(15)
       raise SystemExit
 else:
- print(f'{client.color.fail} !! [ERROR] !! {client.color.reset} Wrong input!')
+ print(f'{client.color.fail} !! [ERROR] !! {client.color.reset} Sai lựa chọn!')
  time.sleep(1)
  os.execl(executable, executable, *argv)
 def at():
@@ -189,7 +190,7 @@ bot = discum.Client(token=client.token, log=False)
 def on_ready(resp):
     if resp.event.ready_supplemental: 
         user = bot.gateway.session.user
-        print("Logged in as {}#{}".format(user['username'], user['discriminator']))
+        print("Đăng nhập vào {}#{}".format(user['username'], user['discriminator']))
 @bot.gateway.command
 def security(resp):
  if client.webhook != 'None':
@@ -197,13 +198,13 @@ def security(resp):
     client.stopped = True
     user = bot.gateway.session.user
     if client.webhookping != 'None':
-     sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> I Found A Captcha In Channel: <#{}>'.format(client.webhookping,client.channel))
-     response = sentwebhook.execute()
+     GỬIwebhook = DiscordWebhook(url=client.webhook, content='<@{}> Tôi tìm thấy captcha ở: <#{}>'.format(client.webhookping,client.channel))
+     response = GỬIwebhook.execute()
      bot.gateway.close()
       
     else:
-     sentwebhook = DiscordWebhook(url=client.webhook, content='<@{}> <@{}> I Found A Captcha In Channel: <#{}>'.format(user['id'],client.allowedid,client.channel))
-     response = sentwebhook.execute()
+     GỬIwebhook = DiscordWebhook(url=client.webhook, content='<@{}> <@{}> Tôi tìm thấy captcha ở: <#{}>'.format(user['id'],client.allowedid,client.channel))
+     response = GỬIwebhook.execute()
      bot.gateway.close()
  if client.webhook == 'None':
   if issuechecker(resp) == "captcha":
@@ -217,28 +218,28 @@ def issuechecker(resp):
    if m['channel_id'] == client.channel and client.stopped != True:
     if m['author']['id'] == '677789907388989469' or m['author']['username'] == 'OwO' or m['author']['discriminator'] == '8456' or m['author']['public_flags'] == '65536':
      if 'captcha' in m['content'].lower():
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG')
        return "captcha"
      if '(2/5)' in m['content'].lower():
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (2/5)')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG (2/5)')
        return "captcha"
      if '(3/5)' in m['content'].lower():
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (3/5)')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG (3/5)')
        return "captcha"
      if '(4/5)' in m['content'].lower():
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (4/5)')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG (4/5)')
        return "captcha"
      if '(5/5)' in m['content'].lower():
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED (5/5)')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG (5/5)')
        return "captcha"
      if 'banned' in m['content'].lower():
-       print(f'{at()}{client.color.fail} !!! [BANNED] !!! {client.color.reset} your account have been banned from owo bot please open a issue on the Support Discord server')
+       print(f'{at()}{client.color.fail} !!! [BANNED] !!! {client.color.reset} tài khoản của bạn đã bị cấm khỏi bot owo, vui lòng mở sự cố trên máy chủ Support Discord')
        return "captcha"
      if 'complete your captcha to verify that you are human!'  in m['content']:
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG')
        return "captcha"
      if 'DM' in m['content'].lower():
-       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   ACTION REQUİRED')
+       print(f'{at()}{client.color.warning} !! [CAPTCHA] !! {client.color.reset} CAPTCHA   CẦN HÀNH ĐỘNG')
        return "captcha"
      if pain == "Premium" and client.change == "YES":
         c = bot.gateway.session.guild(m['guild_id']).channels
@@ -256,13 +257,13 @@ def runner():
         command2=random.choice(client.commands)
         bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), command)
-        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command}")
+        print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command}")
         client.totalcmd += 1
         if not command2==command and client.stopped != True:
           bot.typingAction(str(client.channel))
           time.sleep(13)
           bot.sendMessage(str(client.channel), command2)    
-          print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command2}")
+          print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command2}")
           client.totalcmd += 1
         time.sleep(random.randint(wbm[0],wbm[1]))
   if client.owo == "NO":
@@ -274,13 +275,13 @@ def runner():
         command2=random.choice(client.darkcommands)
         bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), command)
-        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command}")
+        print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command}")
         client.totalcmd += 1
         if not command2==command and client.stopped != True:
           bot.typingAction(str(client.channel))
           time.sleep(10)
           bot.sendMessage(str(client.channel), command2)    
-          print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command2}")
+          print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command2}")
           client.totalcmd += 1
         time.sleep(random.randint(50,60))
   if client.dank == "NO":
@@ -292,13 +293,13 @@ def runner():
         command2=random.choice(client.fishcommands)
         bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), command)
-        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command}")
+        print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command}")
         client.totalcmd += 1
         if not command2==command and client.stopped != True:
           bot.typingAction(str(client.channel))
           time.sleep(1)
           bot.sendMessage(str(client.channel), command2)    
-          print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {command2}")
+          print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command2}")
           client.totalcmd += 1
         time.sleep(random.randint(4,5))
   if client.fish == "NO":
@@ -313,19 +314,19 @@ def owoexp():
            json_data = response.json()
            data = json_data['data']
            bot.sendMessage(str(client.channelxp), "1 "+ data[0]['quoteText'])
-           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 1")
+           print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} mess 1")
            time.sleep(3)
            bot.sendMessage(str(client.channelxp), "2 "+ data[1]['quoteText'])
-           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 2")
+           print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} mess 2")
            time.sleep(3)
            bot.sendMessage(str(client.channelxp), "3 "+ data[2]['quoteText'])
-           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 3")
+           print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} mess 3")
            time.sleep(3)
            bot.sendMessage(str(client.channelxp), "4 "+ data[3]['quoteText'])
-           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 4")
+           print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} mess 4")
            time.sleep(3)
            bot.sendMessage(str(client.channelxp), "5 "+ data[4]['quoteText'])
-           print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} mess 5")
+           print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} mess 5")
            time.sleep(3)
            client.totaltext = client.totaltext + 1
            time.sleep(random.randint(1,2))
@@ -339,7 +340,7 @@ def owopray():
  if client.stopped != True:
   if client.pm == "YES":
     bot.sendMessage(str(client.channel), "owo pray")
-    print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} owo pray")
+    print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} owo pray")
     client.totalcmd += 1
     time.sleep(13)
  if client.pm == "NO":
@@ -378,7 +379,7 @@ def gems1(nogem):
     bot.typingAction(str(client.channel))
     time.sleep(3)
     bot.sendMessage(str(client.channel), "owo inv")
-    print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} owo inv")
+    print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} owo inv")
     client.totalcmd += 1
     time.sleep(4)
     msgs=bot.getMessages(str(client.channel), num=5)
@@ -398,12 +399,12 @@ def gems1(nogem):
     else:
       if '50' in inv:
         bot.sendMessage(str(client.channel), "owo lb all")
-        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} owo lb all")
+        print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} owo lb all")
         time.sleep(13)
         return
       if '100' in inv:
         bot.sendMessage(str(client.channel), "owo crate all")
-        print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} owo crate all")
+        print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} owo crate all")
         time.sleep(2)
       for item in inv:
         try:
@@ -412,7 +413,7 @@ def gems1(nogem):
         except: #backgounds etc
           inv.pop(inv.index(item))
       tier = [[],[],[]]
-      print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Found {len(inv)} gems Inventory")
+      print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Tìm thấy {len(inv)} gems trong inv")
       for gem in inv:
         gem = re.sub(r"[^a-zA-Z0-9]", "", gem)
         gem = int(float(gem))
@@ -427,7 +428,7 @@ def gems1(nogem):
          if not len(tier[nogem]) == 0:
           time.sleep(2)
           bot.sendMessage(str(client.channel), "owo use "+str(max(tier[nogem])))
-          print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} owo use {str(max(tier[nogem]))}")
+          print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} owo use {str(max(tier[nogem]))}")
          else:
           return nogem
 def daily():
@@ -436,7 +437,7 @@ def daily():
     bot.typingAction(str(client.channel))
     time.sleep(3)
     bot.sendMessage(str(client.channel), "owo daily")
-    print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} owo daily")
+    print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} owo daily")
     client.totalcmd += 1
     time.sleep(3)
     msgs=bot.getMessages(str(client.channel), num=5)
@@ -459,9 +460,9 @@ def daily():
          client.wait_time_daily = str(int(daily[0]) * 3600 + int(daily[1]) * 60 + int(daily[2]))
          if "0" in client.wait_time_daily:
            client.wait_time_daily.replace("0","0o")
-           print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Next Daily: {client.wait_time_daily.replace('o','')}s")
+           print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Daily tiếp theo: {client.wait_time_daily.replace('o','')}s")
        if "Your next daily" in daily:
-         print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Claimed Daily")
+         print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Đã nhận daily")
 @bot.gateway.command
 def othercommands(resp):
  prefix = client.prefix
@@ -474,7 +475,7 @@ def othercommands(resp):
     if "{}send".format(prefix) in m['content'].lower():
      message = m['content'][6::]
      bot.sendMessage(str(m['channel_id']), message)
-     print(f"{at()}{client.color.okgreen} [SENT] {client.color.reset} {message}")
+     print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {message}")
     if "{}restart".format(prefix) in m['content'].lower():
      bot.sendMessage(str(m['channel_id']), "Restarting...")
      print(f"{client.color.okcyan} [INFO] Restarting...  {client.color.reset}")
@@ -542,14 +543,14 @@ def loopie(resp):
       if client.sm == "YES":
        if time.time() - main > random.randint(1000, 2000):
         main=time.time()
-        print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Sleep Mode active")
+        print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Sleep mode")
         time.sleep(random.randint(500, 700))
       if time.time() - daily_time > int(client.wait_time_daily):
         daily()
         daily_time = time.time()
       if time.time() - change > random.randint(600,1500):
        if not client.channel2 == []:
-        print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Changed Channel To: {client.channel2[1]}")
+        print(f"{at()}{client.color.okblue} [INFO] {client.color.reset} Thay đổi kênh thành: {client.channel2[1]}")
         client.channel = client.channel2[0]
         change = time.time()
       if client.stop != "None":
@@ -569,21 +570,21 @@ bot.gateway.run(auto_reconnect=True)
 def atexit():
  print(f"{client.color.okgreen}Total Number Of Commands Executed: {client.totalcmd}{client.color.reset}")
  time.sleep(0.5)
- print(f"{client.color.okgreen}Total Number Of Random Text Sent: {client.totaltext}{client.color.reset}")
+ print(f"{client.color.okgreen}Total Number Of Random Text GỬI: {client.totaltext}{client.color.reset}")
  time.sleep(0.5)
  print(f"{client.color.purple} [1] Restart {client.color.reset}")
- print(f"{client.color.purple} [2] Support {client.color.reset}")
- print(f"{client.color.purple} [3] Exit    {client.color.reset}")
+ print(f"{client.color.purple} [2] Hỗ trợ {client.color.reset}")
+ print(f"{client.color.purple} [3] Thoát    {client.color.reset}")
  choice = None
  try:
-  print("Automatically Pick Option [3] In 10 Seconds.")
-  choice = inputimeout(prompt='Enter Your Choice: ', timeout=10)
+  print("Tự động chọn [3] trong 10s")
+  choice = inputimeout(prompt='Nhập lựa chọn của bạn: ', timeout=10)
  except TimeoutOccurred:
   choice = "4"
  if choice == "1":
   os.execl(executable, executable, *argv)
  elif choice == "2":
-  print("Having Issue? Tell Us In Our Support Server")
+  print("Bạn có vấn đề? Cho chúng tôi biết trong máy chủ hỗ trợ của chúng tôi")
   print(f"{client.color.purple} https://discord.gg/3kTrhbBVQm {client.color.reset}")
  elif choice == "3":
   bot.gateway.close()

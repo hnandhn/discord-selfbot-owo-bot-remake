@@ -11,12 +11,12 @@ def install():
  installed = {pkg.key for pkg in pkg_resources.working_set}
  missing = required - installed
  if not missing:
-    print("Requirement Package Are Installed Already! You're Good To Go")
+    print("Đã tải xong gói hỗ trợ!")
     time.sleep(2)
  if missing:
-    print("Installing Requirements Package...")
+    print("Đang tải gói hỗ trợ bắt buộc...")
     time.sleep(1)
     python = sys.executable
     subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
-    print("Successfully Installed Requirements Package! You're Good To Go")
+    print("Đã tải xong gói hỗ trợ!")
     time.sleep(2)

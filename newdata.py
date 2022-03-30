@@ -15,23 +15,23 @@ def menu():
  file = open("settings.json", "r")
  data = json.load(file)
  file.close()
- print('================================')
- print(f'| [0] Exit And Save           |')
- print(f'| [1] Change All Settings     |')
- print(f'| [2] Change Token            |')
- print(f'| [3] Change Channel          |')
- print(f'| [4] Change Pray Mode        |')
- print(f'| [5] Change Gems Mode        |')
- print(f'| [6] Change Exp Mode         |')
- print(f'| [7] Change Quest Mode       |')
- print(f'| [8] Change Sleep Mode       |')
- print(f'| [9] Change Webhook Settings |')
- print(f'| [10] Change Selfbot Commands|')
- print(f'| [11] Change Daily Mode      |')
- print(f'| [12] Change Stop Time       |')
- print(f'| [13] Change Switch Channel  |')
- print('================================')
- choice = input("Enter Your Choice: ")
+ print('========================================')
+ print(f'| [0] Thoát và lưu                    |')
+ print(f'| [1] Thay đổi tất cả cài đặt         |')
+ print(f'| [2] Thay đổi token                  |')
+ print(f'| [3] Thay đổi channel                |')
+ print(f'| [4] Thay đổi chế độ pray            |')
+ print(f'| [5] Thay đổi chế độ sử dụng gem     |')
+ print(f'| [6] CThay đổi chế độ kinh nghiệm    |')
+ print(f'| [7] Thay đổi chế độ quest (removed) |')
+ print(f'| [8] Thay đổi chế độ sleep           |')
+ print(f'| [9] Thay đổi cài đặt webhook        |')
+ print(f'| [10] Thay đổi lệnh selfbot          |')
+ print(f'| [11] Thay đổi chế độ daily          |')
+ print(f'| [12] Thay đổi thời gian stop        |')
+ print(f'| [13] Thay đổi mod thay channel      |')
+ print('========================================')
+ choice = input("Nhập lựa chọn của bạn: ")
  if choice == "0":
   raise SystemExit
  if choice == "1":
@@ -71,116 +71,116 @@ def menu():
  if choice == "13":
   switch_channel(data,"False")
 def t(data,all):
- data['token'] = input("Please Enter Your Account Token: ")
+ data['token'] = input("Vui lòng nhập token tài khoản của bạn: ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def c(data,all):
- data['channel'] = input("Please Enter Your Channel ID: ")
+ data['channel'] = input("Vui lòng nhập id channel: ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def pm(data,all):
- data['pm'] = input("Toggle Automatically Send Pray (YES/NO): ")
+ data['pm'] = input("Chỉnh chế độ pray (YES/NO): ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def gm(data,all):
- data['gm'] = input("Toggle Automatically Use Gems Mode (YES/NO): ")
+ data['gm'] = input("Chỉnh chế độ tự dùng gem mạnh nhất (YES/NO): ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def em(data,all):
- data['em'] = input("Toggle Automatically Send Random Text To Level Up (YES/NO): ")
+ data['em'] = input("Chỉnh chế độ auto gưi text để lên level (YES/NO): ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def qm(data,all):
- data['alt'] = input("Toggle Automatically Do Quests (YES/NO): ")
+ data['alt'] = input("Tự động làm quest (YES/NO): ")
  if data['alt'] == "YES":
-  data['alt'] = input("Enter Your Alternative Account Token To Do Some Specified Quests: ")
+  data['alt'] = input("Nhập id của acc clone bạn để làm quest cụ thể (removed): ")
  else:
   data['alt'] = "None"
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def sm(data,all):
- data['sm'] = input("Toggle Sleep Mode (YES/NO): ")
+ data['sm'] = input("Chỉnh sleep mode (YES/NO): ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def webhook(data,all):
- data['webhook'] = input("Toggle Discord Webhook, Enter Webhook Link If You Want It To Ping You If OwO Asked Captcha. Otherwise Enter \"None\": ")
+ data['webhook'] = input("Chỉnh Discord Webhook, Nhập link Webhook nếu bạn muốn Ping bạn nếu OwO hỏi Captcha. Nếu không thì Nhập \"Không có \": ")
  if data['webhook'] != "None":
-  data['webhookping'] = input("Do You Want To Ping A Specified User When OwO Asked Captcha? If Yes Enter User ID. Otherwise Enter \"None\": ")
+  data['webhookping'] = input("Bạn có muốn Ping một người dùng được chỉ định khi OwO hỏi Captcha không? Nếu Có Nhập ID Người dùng. Nếu không thì Nhập \"None\": ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def oc(data,all):
- data['prefix'] = input("Toggle Selfbot Commands, You Can Control Your Selfbot Using Commands (YES/NO): ")
+ data['prefix'] = input("Chỉnh lệnh Selfbot, bạn có thể điều khiển Selfbot của mình bằng lệnh (YES/NO): ")
  if data['prefix'] == "YES":
-  data['prefix'] = input("Enter Your Selfbot Prefix: ")
-  data['allowedid'] = input("Do You Want Allow An User To Use Your Selfbot Commands? If Yes Enter The Account ID, Otherwise Enter \"None\": ")
-  print("Great! You Can View Selfbot Commands At Option [3] Info At The Main Menu!")
+  data['prefix'] = input("Nhập prefix của selfbot: ")
+  data['allowedid'] = input("Bạn có muốn cho phép người dùng sử dụng lệnh Selfbot của bạn không? Nếu Có Nhập ID Tài khoản, Nếu Không thì Nhập None: ")
+  print("Tuyệt quá! Bạn có thể xem các lệnh Selfbot tại tùy chọn [3] Thông tin tại menu chính!")
   time.sleep(1)
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def daily(data,all):
- data['daily'] = input("Toggle Automatically Claim Daily (YES/NO): ")
+ data['daily'] = input("Chỉnh tự động nhận daily (YES/NO): ")
  if data['daily'] == "NO":
   data['daily'] = "None"
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def switch_channel(data,all):
- data['change'] = input("Toggle Switch Default Channel To Random One After 10 Mins (YES/NO): ")
+ data['change'] = input("Chỉnh Chuyển kênh mặc định sang ngẫu nhiên một sau 10 phút (YES/NO): ")
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 def stop(data,all):
- data['stop'] = input("Toggle Stop After A Specifice Time (YES/NO): ")
+ data['stop'] = input("Chỉnh thời gian stop  (YES/NO): ")
  if data['stop'] == "YES":
-  data['stop'] = input("Enter Stop Time (Seconds): ")
+  data['stop'] = input("Thêm thời gian stop (giây): ")
  else:
   data['stop'] = "None"
  file = open("settings.json", "w")
  json.dump(data, file)
  file.close()
- print('Successfully saved!')
+ print('Lưu thành công!')
  if not all == "True":
   menu()
 menu()
