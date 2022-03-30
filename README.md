@@ -50,7 +50,8 @@ Mẫu json
   "owo": "YES",
   "fish": "NO",
   "dank": "NO",
-  "cobac": 10 // suggest
+  "cobac": "NO",
+  "bet": 10 // suggest
 }
 ```
 **Or Just Normally Run main.py And It Will Automatically Install Requirements Package For You**
