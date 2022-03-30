@@ -49,7 +49,8 @@ Mẫu json
   "channelxp": "954703534778093590",
   "owo": "YES",
   "fish": "NO",
-  "dank": "NO"
+  "dank": "NO",
+  "cobac": 10 // suggest
 }
 ```
 **Or Just Normally Run main.py And It Will Automatically Install Requirements Package For You**
