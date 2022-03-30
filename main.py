@@ -69,7 +69,7 @@ class client:
     "owo hunt",
     "owo battle",
     ]
-  darkcommands=[
+  dankcommands=[
     "pls beg",
     "pls hunt",
     "pls fish"
