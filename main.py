@@ -138,7 +138,7 @@ class client:
 
   print('=========================')
   print('|                       |')
-  print(f'| [1] {color.purple}Tãi data        {color.reset}|')
+  print(f'| [1] {color.purple}Tải data        {color.reset}|')
   print(f'| [2] {color.purple}Tạo data mới    {color.reset}|')
   print(f'| [3] {color.purple}Info            {color.reset}|')
   print('=========================')
@@ -271,8 +271,8 @@ def runner():
   if client.dank == "YES":
     if client.stopped != True:
         
-        command=random.choice(client.darkcommands)
-        command2=random.choice(client.darkcommands)
+        command=random.choice(client.dankcommands)
+        command2=random.choice(client.dankcommands)
         bot.typingAction(str(client.channel))
         bot.sendMessage(str(client.channel), command)
         print(f"{at()}{client.color.okgreen} [GỬI] {client.color.reset} {command}")
